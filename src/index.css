@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme (default) */
+    --background: 240 30% 4%;
+    --foreground: 0 0% 98%;
+
+    /* Neon Colors */
+    --neon-cyan: #00FFFF;
+    --neon-green: #00FF7F;
+    --neon-pink: #FF69B4;
+    --neon-purple: #8A2BE2;
+    --neon-yellow: #FFD700;
+    --neon-red: #FF0000;
+    --neon-orange: #FFA500;
+
+    --card: 240 30% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 30% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 330 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 215 20.2% 75.1%;
+
+    --accent: 262 93% 53%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .light-theme {
+    /* Light theme */
+    --background: 0 0% 98%;
+    --foreground: 240 30% 4%;
+
+    --card: 0 0% 95%;
+    --card-foreground: 240 30% 4%;
+
+    --popover: 0 0% 95%;
+    --popover-foreground: 240 30% 4%;
+
+    --primary: 180 100% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 330 100% 45%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 4% 40%;
+
+    --accent: 262 93% 48%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 85%;
+    --input: 240 5% 85%;
+    --ring: 180 100% 40%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    @apply relative;
+  }
+  
+  .neon-glow::after {
+    @apply content-[''] absolute -z-10 inset-0 opacity-75 blur-md;
+  }
+
+  .neon-glow-cyan::after {
+    @apply bg-neon-cyan;
+  }
+
+  .neon-glow-green::after {
+    @apply bg-neon-green;
+  }
+  
+  .neon-glow-pink::after {
+    @apply bg-neon-pink;
+  }
+  
+  .neon-glow-purple::after {
+    @apply bg-neon-purple;
+  }
+  
+  .neon-text-cyan {
+    @apply text-neon-cyan;
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+  }
+  
+  .neon-text-green {
+    @apply text-neon-green;
+    text-shadow: 0 0 5px #00FF7F, 0 0 10px #00FF7F, 0 0 20px #00FF7F;
+  }
+  
+  .neon-text-pink {
+    @apply text-neon-pink;
+    text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493, 0 0 20px #FF1493;
+  }
+  
+  .neon-text-purple {
+    @apply text-neon-purple;
+    text-shadow: 0 0 5px #8A2BE2, 0 0 10px #8A2BE2, 0 0 20px #8A2BE2;
+  }
+  
+  .neon-text-yellow {
+    @apply text-neon-yellow;
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700;
+  }
+  
+  .neon-text-red {
+    @apply text-neon-red;
+    text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 20px #FF0000;
+  }
+  
+  .neon-text-orange {
+    @apply text-neon-orange;
+    text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 20px #FFA500;
+  }
+  
+  .neon-border {
+    @apply border-2 border-opacity-75;
+  }
+  
+  .neon-border-cyan {
+    @apply border-neon-cyan;
+    box-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF;
+  }
+  
+  .neon-border-green {
+    @apply border-neon-green;
+    box-shadow: 0 0 5px #00FF7F, 0 0 10px #00FF7F;
+  }
+  
+  .neon-border-pink {
+    @apply border-neon-pink;
+    box-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493;
+  }
+  
+  .neon-border-purple {
+    @apply border-neon-purple;
+    box-shadow: 0 0 5px #8A2BE2, 0 0 10px #8A2BE2;
+  }
+  
+  .typewriter {
+    position: relative;
+    width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 2.5s steps(40) 1s forwards;
+  }
+
+  .typewriter::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: currentColor;
+    animation: blink 1s step-end infinite;
+  }
+  
+  .grid-pattern {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  }
+  
+  .section-heading {
+    @apply font-orbitron font-bold text-3xl md:text-4xl lg:text-5xl mb-6 relative inline-block;
+  }
+  
+  .section-heading::after {
+    @apply content-[''] absolute left-0 bottom-0 h-1 bg-current w-full;
+  }
+  
+  .project-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300 bg-card border-2 border-transparent hover:scale-[1.02];
+  }
+  
+  .project-card:hover {
+    @apply border-current;
+    box-shadow: 0 0 15px currentColor;
+  }
+  
+  .skill-item {
+    @apply flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 bg-card border-2 border-transparent hover:scale-105;
+  }
+  
+  .skill-item:hover {
+    @apply border-current;
+    box-shadow: 0 0 15px currentColor;
+  }
+  
+  .neon-button {
+    @apply py-3 px-6 font-orbitron font-medium rounded-md transition-all duration-300 relative overflow-hidden;
+  }
+  
+  .neon-button::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-20;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .neon-button:hover::before {
+    transform: translateX(100%);
+  }
+  
+  .neon-input {
+    @apply bg-transparent border-2 border-muted rounded-md px-4 py-2 transition-all duration-300 focus:outline-none;
+  }
+  
+  .neon-input:focus {
+    @apply border-neon-cyan;
+    box-shadow: 0 0 10px #00FFFF;
+  }
+  
+  .nav-item {
+    @apply relative px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent;
+  }
+  
+  .nav-item-active, .nav-item:hover {
+    @apply border-current;
+  }
+
+  .progress-bar {
+    position: relative;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: currentColor;
+    animation: none;
+    transition: width 1.5s ease-out;
+  }
+  
+  .progress-bar.animate::after {
+    width: var(--progress-value, 0%);
+  }
+
+  .animate-grow-width {
+    width: 0;
+    animation: grow-width 1.5s ease-out forwards;
+  }
+
+  Progress[class*="group-hover:animate-grow-width"] {
+    width: 100%;
+  }
+
+  Progress[class*="group-hover:animate-grow-width"] .indicator {
+    transform: translateX(-100%);
+    transition: transform 1.5s ease-out;
+  }
+
+  Progress[class*="group-hover:animate-grow-width"].group-hover .indicator {
+    transform: translateX(calc(-100% + var(--final-value, 0%)));
+  }
+}
+
+@keyframes typewriter {
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+}
+
+@keyframes grow-width {
+  from { width: 0; }
+  to { width: attr(data-width); }
+}
+
+@keyframes scroll-y {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -17,7 +17,6 @@ const Hero = () => {
   const [isWaiting, setIsWaiting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Typing effect for roles
   useEffect(() => {
     const currentRole = roles[roleIndex];
     
@@ -95,21 +94,21 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen relative overflow-hidden flex items-center justify-center grid-pattern">
 
-      <div className="container mx-auto px-6 py-16 relative z-10">
+      <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
         <div className="mx-auto max-w-3xl flex flex-col items-start justify-center space-y-8">
           <h1 
             ref={titleRef} 
-            className="typewriter font-orbitron font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl neon-text-cyan mb-2 text-left"
+            className="typewriter font-orbitron font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 text-left -ml-2 sm:ml-0 pr-2"
           >
-            Hello, I'm <span className="neon-text-green">Harshith</span>
+            Hello,I'm <span className="neon-text-green">Harshith</span>
           </h1>
-          <div className="text-lg sm:text-xl md:text-2xl font-semibold text-neon-pink mb-2 animate-fade-in">Crafting digital dreams with code & creativity</div>
+          <div className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 animate-fade-in">Crafting digital dreams with code & creativity</div>
           <div 
             ref={subtitleRef} 
-            className="opacity-0 text-left"
+            className="opacity-0 text-left mt-4"
           >
-            <div className="flex items-center gap-3 w-full min-w-0">
-              <span className="text-neon-cyan text-base sm:text-lg md:text-xl font-semibold whitespace-nowrap">On a journey to become a skilled</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full min-w-0">
+              <span className="text-base sm:text-lg md:text-xl font-semibold whitespace-nowrap">On a journey to become a skilled</span>
               <div className="neon-text-cyan flex-1 min-w-0 text-2xl sm:text-3xl md:text-4xl font-medium h-16 flex items-center whitespace-nowrap overflow-hidden text-ellipsis">
                 <span className="mr-2">&#123;</span>
                 <span className="truncate">{displayText}</span>
@@ -120,7 +119,6 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Fixed row of glowing buttons */}
         <div ref={ctaRef} className="opacity-0 mt-14 flex flex-row flex-wrap gap-8 justify-center">
           <a 
             href="#projects" 
